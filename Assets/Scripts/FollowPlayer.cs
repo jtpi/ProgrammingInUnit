@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public GameObject player;
-    private Vector3 offset = new Vector3(0, 5, -10);
+    //public GameObject player;
+    public GameObject Camera;
+    public GameObject cam1;
+    public GameObject cam2;
+    //private Vector3 offset = new Vector3(0, 5, -10);
+   
+
 
     // Start is called before the first frame update
     void Start()
@@ -14,8 +19,21 @@ public class FollowPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        transform.position = player.transform.position + offset;
+        if (Input.GetKey("1")) {
+            Camera.SetActive(true);
+            cam1.SetActive(false);
+            cam2.SetActive(true);
+        }
+        if (Input.GetKey("2"))
+        {
+            Camera.SetActive(true);
+            cam1.SetActive(true);
+            cam2.SetActive(false);
+        }
+        //transform.position = player.transform.position + offset;
+
+
     }
 }
